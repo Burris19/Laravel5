@@ -16,11 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get('notes', function () {
-	$notes = Note::all();
+	// $notes = Note::all();
 
-	return view('notes', compact('notes'));
+	// return view('notes', compact('notes'));
+	return view('notes');
 });
 
+Route::post('notes', function () {
+
+	return 'Creating a note';
+
+});
 
 Route::get('notes/create', function () {
 	
