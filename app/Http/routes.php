@@ -19,7 +19,7 @@ Route::get('notes', function () {
 	// $notes = Note::all();
 
 	// return view('notes', compact('notes'));
-	return view('notes');
+	return view('notes/list');
 });
 
 Route::post('notes', function () {
@@ -30,7 +30,7 @@ Route::post('notes', function () {
 
 Route::get('notes/create', function () {
 	
-	return '[Create notes]';
+	return view('notes/create');
 
 });
 
