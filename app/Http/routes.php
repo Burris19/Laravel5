@@ -15,27 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('notes', function () {
-	// $notes = Note::all();
-
-	// return view('notes', compact('notes'));
-	return view('notes/list');
-});
-
-Route::post('notes', function () {
-
-	return 'Creating a note';
-
-});
-
-Route::get('notes/create', function () {
-	
-	return view('notes/create');
-
-});
-
-Route::get('notes/{note}/{slug?}', function ($note, $slug = null) {
-
-	return compact('note', 'slug');
-
-})->where('note', '[0-9]+');
+Route::get('notes', 'NoteController@index');
+Route::get('notes/create', 'NoteController@create');
+Route::post('notes', 'NoteController@store');
