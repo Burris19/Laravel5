@@ -12,7 +12,11 @@ class Notes extends Migration
      */
     public function up()
     {
-        
+        Schema::create('notes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->mediumText('notes');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +26,6 @@ class Notes extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('notes');
     }
 }

@@ -17,9 +17,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        // $notes Note::all();
-
-        return view('notes/list');
+        $notes=Note::all();
+        return view('notes/list', compact('notes'));
     }
 
     /**
@@ -74,7 +73,8 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
     }
 
     /**
@@ -85,6 +85,6 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
