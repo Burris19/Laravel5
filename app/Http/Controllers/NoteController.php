@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Note;
 
+
 class NoteController extends Controller
 {
     /**
@@ -39,10 +40,16 @@ class NoteController extends Controller
      */
     public function store()
     {
+        $data = request()->all();
+
+        Note::create($data);        
+
+        return redirect()->to('notes');
+
         
-        $this->validate(request(), [
-            'note' => ['required', 'max:200']
-        ]);
+        // $this->validate(request(), [
+        //     'note' => ['required', 'max:200']
+        // ]);
 
         // return 'Creating a note';
     }
