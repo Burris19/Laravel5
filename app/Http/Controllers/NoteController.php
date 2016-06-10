@@ -37,9 +37,14 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        return 'Creating a note';
+        
+        $this->validate(request(), [
+            'note' => ['required', 'max:200']
+        ]);
+
+        // return 'Creating a note';
     }
 
     /**
