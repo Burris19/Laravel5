@@ -1,31 +1,27 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+use App\Note;
 
 class NotesTest extends TestCase
 {
-	// use WithoutMiddleware;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $this->assertTrue(true);
+    use DatabaseTransactions;
+
+    public function test_notes_list() {
+        // having
+        Note::create(['note' => 'My first note']);
+        Note::create(['note' => 'Second note']);
+
+        // When
+        $this->visit('notes')
+            // Then
+            ->see('My first note')
+            ->see('Second note');
+
+
     }
-
-    // public function test_create() 
-    // {
-    // 	// Route::post('')
-    // 	// When
-    // 	$this->post('notes')
-    // 		// Then
-    // 		->see('Creating a note');
-    // }
 
     public function test_create_note() {
 

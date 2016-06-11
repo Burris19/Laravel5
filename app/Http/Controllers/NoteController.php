@@ -40,18 +40,17 @@ class NoteController extends Controller
      */
     public function store()
     {
+        
+        $this->validate(request(), [
+            'note' => ['required', 'max:200']
+        ]);
+
         $data = request()->all();
 
         Note::create($data);        
 
         return redirect()->to('notes');
 
-        
-        // $this->validate(request(), [
-        //     'note' => ['required', 'max:200']
-        // ]);
-
-        // return 'Creating a note';
     }
 
     /**
