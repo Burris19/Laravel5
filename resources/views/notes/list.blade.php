@@ -15,6 +15,6 @@
 		</li>
 	@endforeach	
 </ul>
-
+{!! $notes->render() !!}
 
 @endSection
