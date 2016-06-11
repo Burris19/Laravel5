@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('notes', 'NoteController@index');
 Route::get('notes/create', 'NoteController@create');
 Route::post('notes', 'NoteController@store');
+
+Route::get('notes/{note}', 'NoteController@show')->where('note', '[0-9]+');

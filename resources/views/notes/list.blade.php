@@ -11,8 +11,13 @@
 <ul class="list-group">
 	@foreach($notes as $item)
 		<li class="list-group-item">
-			<span class="label label-info">{{ $item->category->name}}</span>
-			{{ $item->note}}
+			@if($item->category)
+				<span class="label label-info">{{ $item->category->name}}</span>
+			@else
+				<span class="label label-info">Others</span>
+			@endif			
+			{{ substr($item->note, 0, 100) }} ...
+			<a href="{{ url('notes/'.$item->id) }}" class="small">View note</a>
 		</li>
 	@endforeach	
 </ul>
